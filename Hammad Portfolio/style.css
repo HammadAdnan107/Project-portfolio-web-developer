@@ -1,0 +1,587 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #000; /* Set background color to black */
+    color: #fff; /* Change text color to white for contrast */
+    scroll-behavior: smooth;
+}
+
+/* Navbar Styling */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffcc00; /* Yellow color for logo */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white; /* White text color for links */
+    font-size: 18px;
+    transition: color 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.nav-links a:hover {
+    background-color: #ffcc00; /* Yellow background on hover */
+    color: #333; /* Change text color on hover */
+}
+
+/* Button Styling */
+.btn {
+    text-decoration: none;
+    color: #ffcc00; /* Yellow text color */
+    padding: 10px 20px;
+    border: 2px solid #ffcc00; /* Yellow border */
+    border-radius: 30px;
+    background-color: transparent; /* Make background transparent */
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+    display: inline-block;
+    position: relative; /* Position for animation */
+    overflow: hidden; /* Prevent overflow for inner elements */
+    font-family: 'Poppins', sans-serif; /* Set font family */
+}
+
+.btn.intro {
+    background-color: rgba(255, 255, 255, 0.1); /* Light background for Intro button */
+}
+
+.btn.intro:hover {
+    color: #fff; /* Change text color to white on hover */
+    background-color: rgba(255, 204, 0, 0.5); /* Lighter yellow background on hover */
+    transform: scale(1.05) rotate(1deg); /* Slightly increase size and rotate on hover */
+    box-shadow: 0 4px 20px rgba(255, 204, 0, 0.5); /* Add shadow effect */
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 204, 0, 0.3); /* Semi-transparent yellow overlay */
+    transform: translateY(-100%); /* Start above the button */
+    transition: transform 0.4s ease; /* Animation for overlay */
+    z-index: 0; /* Send overlay behind text */
+}
+
+.btn:hover::before {
+    transform: translateY(0); /* Slide overlay down on hover */
+}
+
+.btn:hover {
+    color: #fff; /* Change text color to white on hover */
+    background-color: #ffcc00; /* Yellow background on hover */
+    transform: scale(1.05) rotate(1deg); /* Slightly increase size and rotate on hover */
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 50px;
+}
+
+.hero-content {
+    max-width: 500px;
+}
+
+h1 {
+    font-size: 48px;
+    margin: 20px 0;
+    color: #ffcc00; /* Yellow color for heading */
+    animation: fadeInUp 1.5s ease-in-out; /* Animation */
+}
+
+.web-dev-description {
+    font-size: 18px;
+    margin: 20px 0;
+    color: #ddd; /* Light gray for description text */
+    animation: fadeIn 1.5s ease-in-out; /* Animation */
+}
+
+/* About Section */
+#about {
+    padding: 100px 50px;
+    text-align: center;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center;
+}
+
+.about-image {
+    border-radius: 50%; /* Make image circular */
+    width: 150px; /* Set image width */
+    margin-bottom: 20px; /* Space below the image */
+  
+}
+.hero-image {
+    transition: transform 0.7s ease-in-out;
+  }
+  
+  .hero-image:hover {
+    transform: scale(1.05); /* Slight zoom-in effect */
+  }
+  
+#about h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ffcc00; /* Yellow color for section headings */
+}
+h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+    color: #ffcc00;
+    text-align: center;
+}
+/* Styling for <p> tags */
+p {
+    font-size: 18px; /* Set font size for paragraphs */
+    margin: 10px 0; /* Add some margin */
+    color: rgba(255, 255, 255, 0.8); /* Light white for paragraphs */
+}
+
+/* Animation for the description text */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Start lower */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at normal position */
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Start lower */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at normal position */
+    }
+}
+
+.buttons {
+    display: flex;
+    margin-top: 20px;
+}
+
+/* Image Animation */
+.hero-image img {
+    border-radius: 50%;
+    width: 300px;
+    animation: scaleAnimation 0.7s ease-in-out infinite alternate;
+}
+/* Define the keyframes for the zooming animation */
+@keyframes scaleAnimation {
+    0% {
+      transform: scale(1); /* Normal size */
+    }
+    100% {
+      transform: scale(1.05); /* Slightly zoomed in */
+    }
+  }
+/* Skills Section */
+#skills {
+    padding: 100px 50px;
+    text-align: center;
+}
+
+#skills h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ffcc00; /* Yellow color for section headings */
+}
+
+.skill {
+    margin: 20px 0; /* Margin between skills */
+}
+
+.skill-title {
+    font-size: 24px; /* Font size for skill title */
+    color: #fff; /* White color for skill title */
+    margin-bottom: 5px;
+}
+
+.skill-bar {
+    background-color: rgba(255, 204, 0, 0.3); /* Light yellow background for the bar */
+    border-radius: 25px;
+    height: 15px; /* Height of the skill bar (smaller) */
+    overflow: hidden; /* Prevent overflow */
+    position: relative;
+}
+
+.skill-percentage {
+    background-color: #ffcc00; /* Yellow color for percentage fill */
+    height: 100%; /* Fill the full height */
+    text-align: center; /* Center the text */
+    line-height: 15px; /* Center text vertically */
+    color: #000; /* Black color for percentage text */
+    transition: width 0.5s ease; /* Smooth transition for width */
+}
+
+
+/* Location Section */
+#location {
+    padding: 100px 50px;
+    text-align: center;
+}
+
+#location h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ffcc00; /* Yellow color for section headings */
+}
+
+/* Contact Section */
+#contact {
+    padding: 100px 50px;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ffcc00; /* Yellow color for section headings */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+input, textarea {
+    width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ffcc00; /* Yellow border */
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1); /* Light background */
+    color: #fff; /* White text */
+}
+
+button[type="submit"] {
+    background-color: #ffcc00; /* Yellow background for the submit button */
+    color: #000; /* Black text for the button */
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+button[type="submit"]:hover {
+    background-color: rgba(255, 204, 0, 0.8); /* Lighter yellow on hover */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333; /* Dark background color for footer */
+    text-align: center; /* Center text in footer */
+    padding: 20px 0; /* Space inside footer */
+}
+
+.footer-content {
+    margin-bottom: 10px; /* Space below footer content */
+}
+
+.footer-content h2 {
+    margin-bottom: 10px; /* Space below title */
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center; /* Center social icons */
+    gap: 20px; /* Space between icons */
+}
+
+.social-icons img {
+    width: 40px; /* Icon size */
+    transition: transform 0.3s; /* Smooth icon transition */
+}
+
+.social-icons img:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.footer-bottom {
+    margin-top: 10px; /* Space above footer bottom */
+    font-size: 14px; /* Font size for footer text */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start fully transparent */
+    }
+    to {
+        opacity: 1; /* End fully opaque */
+    }
+}
+
+
+/* Map Container */
+.map-container {
+    margin-top: 30px; /* Space above map */
+}
+
+.map-container h3 {
+    margin-bottom: 10px; /* Space below map title */
+    color: #fff; /* White text color for title */
+}
+
+.map {
+    display: flex; /* Flex display for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.map iframe {
+    width: 100%; /* Full width */
+    max-width: 600px; /* Max width for larger screens */
+    height: 450px; /* Fixed height for map */
+    border: 0; /* Remove border */
+}
+#hammadi,h3{
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ffcc00; /* Yellow color for section headings */
+}
+
+.button-container {
+    display: flex;                /* Enable flexbox */
+    justify-content: center;      /* Center the buttons horizontally */
+    margin: 20px 0;              /* Add space above and below */
+}
+
+.cta-btn {
+    background-color: #f39c12;   /* Button color */
+    color: white;                 /* Text color */
+    padding: 10px 20px;          /* Padding inside buttons */
+    border: none;                 /* No border */
+    border-radius: 5px;          /* Rounded corners */
+    text-decoration: none;        /* Remove underline */
+    margin: 0 10px;              /* Space between buttons */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.cta-btn:hover {
+    background-color: #e67e22;   /* Change color on hover */
+    transform: scale(1.05);      /* Slightly enlarge on hover */
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #1e1e1e;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: #f39c12;
+    text-decoration: none;
+}
+
+.cta-btn {
+    background-color: #f39c12; /* Button color */
+    color: white;               /* Text color */
+    padding: 10px 20px;        /* Padding inside buttons */
+    border: none;               /* No border */
+    border-radius: 5px;        /* Rounded corners */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.cta-btn:hover {
+    background-color: #e67e22; /* Change color on hover */
+    transform: scale(1.05);    /* Slightly enlarge on hover */
+}
+#download-cv {
+    background-color: #1e1e1e; /* Section background color */
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px; /* Rounded corners for the section */
+    margin: 20px; /* Margin around the section */
+}
+
+
+.cv-btn {
+    display: inline-block; /* Make it a block element for padding */
+    background-color: #f39c12; /* Button color */
+    color: white; /* Text color */
+    padding: 15px 30px; /* Padding for the button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners for the button */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.cv-btn:hover {
+    background-color: #e67e22; /* Change color on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.cv-btn:active {
+    transform: scale(0.95); /* Slightly shrink when clicked */
+}
+
+
+section {
+    padding: 40px;
+    text-align: center;
+    scroll-margin-top: 60px; /* Adjust for fixed navbar */
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+#project {
+    background-color: #1e1e1e; /* Section background color */
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px; /* Rounded corners for the section */
+    margin: 20px; /* Margin around the section */
+}
+#github-projects {
+    background-color: #1e1e1e; /* Background color */
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px; /* Rounded corners for the section */
+    margin: 20px; /* Margin around the section */
+}
+
+.project {
+    background-color: #333; /* Project card background */
+    border-radius: 8px; /* Rounded corners for project cards */
+    padding: 20px;
+    margin: 15px 0; /* Margin between project cards */
+    transition: transform 0.2s; /* Smooth transition for hover effect */
+}
+
+.project:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+.project h2 {
+    color: #f7f3ee; /* Project title color */
+    margin-bottom: 10px; /* Space between title and description */
+}
+
+.project p {
+    color: #ffffff; /* Description color */
+    margin-bottom: 15px; /* Space between description and button */
+}
+
+.project-btn {
+    background-color: #e67e22 ; /* Button color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding for the button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners for the button */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.project-btn:hover {
+    background-color:#c22c11e6; /* Change color on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+.project p {
+    color: #ffffff; /* Text color */
+    font-size: 16px; /* Font size */
+    line-height: 1.5; /* Spacing between lines */
+    margin-bottom: 15px; /* Space below the paragraph */
+    padding: 10px; /* Padding inside the paragraph */
+    background-color: rgba(51, 51, 51, 0.8); /* Background color with transparency */
+    border-radius: 5px; /* Rounded corners for the paragraph */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+  cursor: pointer;
+
+  font: 1em verdana;
+}
+
+.project p:hover {
+    background-color:#c22c11e6; 
+}
+
+/* Media Queries for Responsive Design */
+@media only screen and (min-width: 768px) {
+    /* Adjust navbar for larger screens */
+    nav ul {
+      justify-content: space-between;
+    }
+  
+    /* Skills section for larger screens */
+    .skills-bar {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    /* GitHub projects displayed in two columns on tablets */
+    .github-project {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media only screen and (min-width: 1024px) {
+    /* Larger screens, more columns for projects */
+    .github-project {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
